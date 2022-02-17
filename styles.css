@@ -16,3 +16,52 @@ body {
   font-weight: 300;
   text-align: center;
 }
+
+.carousel {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.carousel-slides {
+  --currentSlide: 0;
+  --duration: 0;
+  display: flex;
+  transition: transform calc(var(--duration) * 1ms) ease-out;
+  transform: translate3D(calc(var(--currentSlide) * -100%), 0, 0);
+}
+
+.carousel-slides img {
+  padding: 5px;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  color: #fff;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.carousel-control.prev {
+  left: 0;
+}
+
+.carousel-control.next {
+  right: 0;
+}
+
+/* For Test */
+.carousel {
+  overflow: visible;
+}
+
+/* For Test */
+#overflow:checked ~ .carousel {
+  overflow: hidden;
+}
